@@ -25,14 +25,16 @@ const Navbar = () => {
 
   return (
     <div className='navbar flex items-center justify-between px-5'>
-        <img className='w-20 h-8 mt-3' src={navbarlogo}/>
+        <img className='w-20 h-8 mt-3' src={navbarlogo} alt=''/>
         <div>
         <Link to="/">Home</Link>
         <Link to="/create-recipe">Create Recipe</Link>
         <Link to="/saved-recipe">Saved Recipe</Link>
         {isLogin ? <button className="rounded-xl bg-gradient-to-br from-[#3C0066] via-[#EC38BC] to-[#FDEFF9] 
         px-3 py-2 text-base font-medium text-white transition duration-200 hover:shadow-lg 
-        hover:shadow-[#EC38BC]/50" onClick={logout}>Logout</button> : (<Link to="/auth">Login/Register</Link>)}
+        hover:shadow-[#EC38BC]/50" onClick={logout}>Logout</button> : (<Link to="/auth" className="rounded-xl bg-gradient-to-br from-[#3C0066] via-[#EC38BC] to-[#FDEFF9] 
+            px-3 py-2 text-base font-medium text-white transition duration-200 hover:shadow-lg 
+            hover:shadow-[#EC38BC]/50">Login/Register</Link>)}
         </div>
     </div>
   )
