@@ -1,16 +1,26 @@
 import React, { useState } from 'react'
 import '../App.css'
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom'
+import {Navigate, useNavigate} from 'react-router-dom'
 import {useCookies} from 'react-cookie';
 import loginWallpaper from '../recipe-login.jpg'
 
 import Navbar from './Navbar';
 
 const Auth = () => {
+
+  const navigate = useNavigate();
+  const handleRedirect =()=>{
+    navigate('/');
+  }
   return (
     <>
-    <Navbar/>
+    <button
+      className="absolute top-5 left-5 p-2 w-10 text-sm font-bold text-gray-700 bg-white hover:bg-gray-700 rounded-md shadow hover:text-white focus:outline-none"
+      onClick={handleRedirect}
+    >
+      ←
+    </button>
     <div className="flex justify-center items-center h-screen bg-custom-image bg-cover bg-center w-full" style={{ backgroundImage: `url(${loginWallpaper})` }}>
       <Login />
       <Register />
