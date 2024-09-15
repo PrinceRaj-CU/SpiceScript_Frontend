@@ -84,7 +84,7 @@ const Home = () => {
         ) : (
     <div className=' grid grid-flow-row gap-3 xl:grid-cols-4 grid-cols-1 md:grid-cols-3 mr-3 ml-3'>
       {recipes?.map((recipe)=>(
-        <div className='  hover:scale-105 transition-all duration-200 border-gray-700 bg-gray-200 border-2 rounded-lg p-1 hover:shadow-lg cursor-pointer ' key={recipe._id}>
+        <div className='  hover:scale-105 transition-all duration-200 shadow-xl shadow-gray-300 bg-white rounded-lg p-1 hover:shadow-lg cursor-pointer p-2' key={recipe._id}>
           <div >
             <h2>{recipe.name}</h2>
             <button className="rounded-xl bg-gradient-to-br from-[#00C9FF] to-[#92FE9D] px-3 py-2 text-sm font-medium text-white transition duration-200 hover:shadow-lg hover:shadow-[#00C9FF]/50" onClick={()=> saveRecipe(recipe._id)} disabled={isRecipeSaved(recipe._id)}>{isRecipeSaved(recipe._id)? "Saved":"Save"}</button>
