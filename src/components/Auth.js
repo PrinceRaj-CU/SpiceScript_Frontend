@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../App.css'
 import axios from 'axios';
-import {Navigate, useNavigate} from 'react-router-dom'
+import {Link, Navigate, useNavigate} from 'react-router-dom'
 import {useCookies} from 'react-cookie';
 import loginWallpaper from '../recipe-login.jpg'
 
@@ -23,7 +23,6 @@ const Auth = () => {
     </button>
     <div className="flex justify-center items-center h-screen bg-custom-image bg-cover bg-center w-full" style={{ backgroundImage: `url(${loginWallpaper})` }}>
       <Login />
-      <Register />
     </div>
     </>
   )
@@ -68,34 +67,6 @@ const Login =()=>{
   );
 };
 
-const Register =()=>{
-  const [username, setUsername]=useState("")
-  const [password, setPassword]=useState("")
-
-  const onSubmit =async (event)=>{
-    event.preventDefault();
-    try {
-      await axios.post("https://spicescript-backend.onrender.com/auth/register", {
-        username,
-        password,
-      });
-      alert("Registration Completed! Now Login.");
-    } catch (error) {
-      console.error(error)
-      alert(error.response.data)
-    }
-  }
-
-  return (
-  <Form username={username}
-  setUsername={setUsername}
-  password={password}
-  setPassword={setPassword}
-  label="Register"
-  onSubmit={onSubmit}/>
-  );
-};
-
 const Form=({username, setUsername, password, setPassword, label, onSubmit,})=>{
   return(
     <div className="flex flex-col justify-center items-center p-5 bg-black bg-opacity-50 text-black rounded-lg shadow-md shadow-[rgba(51,49,49,0.83)] m-5 w-[400px]">
@@ -115,8 +86,9 @@ const Form=({username, setUsername, password, setPassword, label, onSubmit,})=>{
         onChange={(event) => setPassword(event.target.value)}/>
       </div>
 
-      <button className="text-gray-900 bg-gradient-to-r from-amber-300 via-orange-200 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type='submit'>{label}</button>
+      <button className="text-gray-900 bg-gradient-to-r from-amber-300 via-orange-200 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type='submit'>Login</button>
     </form>
+    <p className="text-white">Don't have an account? <Link to="/register" className="text-blue-500">Sign up</Link></p>
   </div>
   );
 }

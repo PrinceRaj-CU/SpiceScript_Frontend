@@ -24,6 +24,7 @@ const Home = () => {
       try {
         const response = await axios.get(`https://spicescript-backend.onrender.com/recipes?page=${currentPage}&limit=8`);
         setRecipes(response.data.recipes);
+        console.log(recipes);
         setTotalPages(response.data.totalPages);
       } catch (error) {
         console.log(error)
