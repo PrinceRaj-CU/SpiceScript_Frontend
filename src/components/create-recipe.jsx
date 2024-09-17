@@ -45,6 +45,7 @@ const CreateRecipe = () => {
       console.log(error)
     }
   }
+  // This form is designed for users to create and submit their own recipes. Users can input the recipe name, ingredients, instructions, image URL, and cooking time. The submitted data will be used to build a card that is displayed on the homepage. When a user saves a recipe, the card will also be saved to their "Saved Recipes" page. The app uses JWT tokens to track which user has saved which recipes.
 
   return (
     <>
