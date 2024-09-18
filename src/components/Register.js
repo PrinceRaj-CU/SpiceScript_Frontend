@@ -28,6 +28,7 @@ const Register = () => {
   )
 };
 
+//Users must register on the website before they can log in, create recipes, and save their favorite recipes. Registration is mandatory to access these features.
 const Signup =()=>{
   const [username, setUsername]=useState("")
   const [password, setPassword]=useState("")
